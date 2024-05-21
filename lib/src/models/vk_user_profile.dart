@@ -8,6 +8,8 @@ class VKUserProfile {
   final String? photo50;
   final String? photo100;
   final String? photo200;
+  final String? bdate;
+  final String? phone;
 
   VKUserProfile.fromMap(Map<String, dynamic> map)
       : userId = map['userId'] as int,
@@ -17,7 +19,9 @@ class VKUserProfile {
         onlineMobile = map['onlineMobile'] as bool?,
         photo50 = map['photo50'] as String?,
         photo100 = map['photo100'] as String?,
-        photo200 = map['photo200'] as String?;
+        photo200 = map['photo200'] as String?,
+        bdate = map['bdate'] as String?,
+        phone = map['phone'] as String?;
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
@@ -29,6 +33,8 @@ class VKUserProfile {
       'photo50': photo50,
       'photo100': photo100,
       'photo200': photo200,
+      'bdate': bdate,
+      'phone': phone,
     };
   }
 
@@ -44,7 +50,9 @@ class VKUserProfile {
           onlineMobile == other.onlineMobile &&
           photo50 == other.photo50 &&
           photo100 == other.photo100 &&
-          photo200 == other.photo200;
+          photo200 == other.photo200 &&
+          bdate == other.bdate &&
+          phone == other.phone;
 
   @override
   int get hashCode =>
@@ -55,12 +63,14 @@ class VKUserProfile {
       onlineMobile.hashCode ^
       photo50.hashCode ^
       photo100.hashCode ^
+      phone.hashCode ^
+      bdate.hashCode ^
       photo200.hashCode;
 
   @override
   String toString() {
     return 'VKUserProfile(userId: $userId, firstName: $firstName, '
         'lastName: $lastName, online: $online, onlineMobile: $onlineMobile, '
-        'photo50: $photo50, photo100: $photo100, photo200: $photo200)';
+        'photo50: $photo50, photo100: $photo100, photo200: $photo200, phone: $photo200, bdate: $photo200)';
   }
 }
